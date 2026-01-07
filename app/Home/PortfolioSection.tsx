@@ -160,7 +160,11 @@ export default function PortfolioSection() {
   );
 }
 
-function Tag({ label }) {
+type TagProps = {
+  label: string;
+};
+
+function Tag({ label }: TagProps) {
   return (
     <span className="text-xs px-3 py-1 rounded-full border border-gray-700 text-gray-300">
       {label}

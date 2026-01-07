@@ -3,13 +3,6 @@ import Image from "next/image";
 
 import arrowUpRight from "@/public/Home/arrow_up_right_circle_white.svg";
 
-import {
-  CodeBracketIcon,
-  PencilSquareIcon,
-  MagnifyingGlassIcon,
-  MegaphoneIcon,
-  ArrowUpRightIcon,
-} from "@heroicons/react/24/outline";
 
 const services = [
   {

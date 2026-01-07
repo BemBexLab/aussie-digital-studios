@@ -1,6 +1,13 @@
 import React from "react";
 import Image from "next/image";
 
+type CardData = {
+  image: string;
+  name: string;
+  handle: string;
+  date: string;
+};
+
 const Testimonials = () => {
   const cardsData = [
     {
@@ -33,7 +40,7 @@ const Testimonials = () => {
     },
   ];
 
-  const CreateCard = ({ card }) => (
+  const CreateCard = ({ card }: { card: CardData }) => (
     <div className="p-4 rounded-xl mx-2 shadow-lg hover:shadow-xl transition-all duration-200 w-[350px] h-[180px] shrink-0 bg-[#202020] text-white border border-gray-800">
       <div className="flex gap-2">
         <div className="flex flex-col">
@@ -91,10 +98,10 @@ const Testimonials = () => {
 
   return (
     <div className="relative py-8">
-        <div className="flex flex-col my-8">
-            <p className="text-sm text-[#4C8C74] text-center">Testimonials</p>
-            <p className="text-center text-4xl font-bold text-white">What Client Say About us</p>
-        </div>
+      <div className="flex flex-col my-8">
+        <p className="text-sm text-[#4C8C74] text-center">Testimonials</p>
+        <p className="text-center text-4xl font-bold text-white">What Client Say About us</p>
+      </div>
       <style>{`
             @keyframes marqueeScroll {
                 0% { transform: translateX(0%); }
