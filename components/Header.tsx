@@ -14,7 +14,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img
-              src="/Group (1).png"
+              src="/Group_1.png"
               alt="Aussie Digital Studios"
               className="h-14 w-auto"
             />
