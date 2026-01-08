@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Values from './components/Values'
 import BrandLevelUp from './components/BrandLevelUp'
+import Mission from './components/Mission'
 
 const AboutPage = () => {
   return (
@@ -15,6 +16,7 @@ const AboutPage = () => {
       <About />
       <Values />
       <BrandLevelUp />
+      <Mission />
       <Footer />
     </div>
   )
