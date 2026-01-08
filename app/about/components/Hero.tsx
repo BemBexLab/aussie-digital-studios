@@ -4,7 +4,7 @@ import { PiSunFill } from "react-icons/pi";
 const Hero = () => {
   return (
     <div
-      className="w-screen h-100 flex items-center justify-center relative overflow-hidden"
+      className="w-full h-100 flex items-center justify-center relative overflow-hidden"
       style={{
         backgroundImage: "url('/About/Frame_about_hero.svg')",
         backgroundSize: "cover",
@@ -49,3 +49,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
