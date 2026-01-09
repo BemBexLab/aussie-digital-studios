@@ -31,9 +31,9 @@ const Hero = () => {
       {/* Content */}
       <div className="flex items-end justify-center w-full relative z-10 px-4">
         <div className="relative">
-          {/* ABOUT US text */}
-          <h2 className="text-8xl md:text-9xl lg:text-[180px] font-medium text-white scale-x-70 scale-y-70">
-            PORTFOLIO
+          {/* Title */}
+          <h2 className="text-8xl md:text-9xl lg:text-[100px] font-medium text-white scale-x-70 scale-y-70">
+            Career Opportunities
           </h2>
 
           {/* Green circle positioned above and to the right */}

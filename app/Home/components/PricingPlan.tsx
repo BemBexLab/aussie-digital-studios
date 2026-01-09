@@ -7,34 +7,34 @@ const PricingPlan = () => {
         <p className="text-center my-[7px] text-xl font-medium text-[#4C8C74]">
           Pricing Plans
         </p>
-        <h1 className="text-center text-4xl font-semibold text-white mb-16">
+        <h1 className="text-center text-4xl font-semibold text-white mb-5">
           Our Packages
         </h1>
 
         {/* Buttons */}
-        <div className="flex flex-row gap-2 justify-center mb-7 flex-wrap">
-          <div className="bg-[rgba(76, 140, 116, 0.10)] text-[#AAAAAA] px-3 py-1.5 rounded-[8px] border border-solid hover:border-yellow-400 hover:text-yellow-400 cursor-pointer text-sm">
+        <div className="flex flex-row gap-4 justify-center flex-wrap">
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow transition">
             Logo
           </div>
-          <div className="bg-[rgba(76, 140, 116, 0.10)] text-[#AAAAAA] px-3 py-1.5 rounded-[8px] border border-solid hover:border-yellow-400 hover:text-yellow-400 cursor-pointer text-sm">
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
             E-Commerce
           </div>
-          <div className="bg-[rgba(76, 140, 116, 0.10)] text-[#AAAAAA] px-3 py-1.5 rounded-[8px] border border-solid hover:border-yellow-400 hover:text-yellow-400 cursor-pointer text-sm">
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
             Website Design
           </div>
-          <div className="bg-[rgba(76, 140, 116, 0.10)] text-[#AAAAAA] px-3 py-1.5 rounded-[8px] border border-solid hover:border-yellow-400 hover:text-yellow-400 cursor-pointer text-sm">
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
             SMM
           </div>
-          <div className="bg-[rgba(76, 140, 116, 0.10)] text-[#AAAAAA] px-3 py-1.5 rounded-[8px] border border-solid hover:border-yellow-400 hover:text-yellow-400 cursor-pointer text-sm">
-            Animation
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
+            Video Animation
           </div>
-          <div className="bg-[rgba(76, 140, 116, 0.10)] text-[#AAAAAA] px-3 py-1.5 rounded-[8px] border border-solid hover:border-yellow-400 hover:text-yellow-400 cursor-pointer text-sm">
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
             SEO
           </div>
-          <div className="bg-[rgba(76, 140, 116, 0.10)] text-[#AAAAAA] px-3 py-1.5 rounded-[8px] border border-solid hover:border-yellow-400 hover:text-yellow-400 cursor-pointer text-sm">
-            Maintainance
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
+            Maintenance
           </div>
-          <div className="bg-[rgba(76, 140, 116, 0.10)] text-[#AAAAAA] px-3 py-1.5 rounded-[8px] border border-solid hover:border-yellow-400 hover:text-yellow-400 cursor-pointer text-sm">
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
             Branding
           </div>
         </div>

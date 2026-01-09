@@ -4,13 +4,43 @@ export default function PortfolioSection() {
   return (
     <section className="relative py-28">
       {/* Heading */}
-      <div className="text-center mb-20">
-        <p className="text-lg text-emerald-400 mb-2 font-semibold">
-          Our Portfolio
-        </p>
-        <h2 className="text-4xl md:text-5xl font-semibold text-white">
-          Proven results, stunning Websites
-        </h2>
+      <div className="mb-20">
+        <div className="text-center mb-8">
+          <p className="text-lg text-emerald-400 mb-2 font-semibold">
+            Our Portfolio
+          </p>
+          <h2 className="text-4xl md:text-5xl font-semibold text-white">
+            Proven results, stunning Websites
+          </h2>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex flex-row gap-4 justify-center flex-wrap">
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-400 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
+            Logo
+          </div>
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
+            E-Commerce
+          </div>
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
+            Website Design
+          </div>
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
+            SMM
+          </div>
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
+            Video Animation
+          </div>
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
+            SEO
+          </div>
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
+            Maintenance
+          </div>
+          <div className="text-gray-400 px-4 py-2 rounded-[8px] border border-gray-600 cursor-pointer text-sm hover:border-yellow-400 hover:text-yellow-400 transition">
+            Branding
+          </div>
+        </div>
       </div>
 
       {/* Main Container */}
@@ -30,7 +60,9 @@ export default function PortfolioSection() {
 
             {/* Content */}
             <div className="flex flex-col flex-grow">
-              <h3 className="text-[#3A6EA5] font-semibold mb-2">Project Name</h3>
+              <h3 className="text-[#3A6EA5] font-semibold mb-2">
+                Project Name
+              </h3>
 
               <p className="text-sm text-gray-400 mb-4 flex-grow">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -66,7 +98,9 @@ export default function PortfolioSection() {
             </div>
 
             <div className="flex flex-col flex-grow">
-              <h3 className="text-[#3A6EA5] font-semibold mb-2">Project Name</h3>
+              <h3 className="text-[#3A6EA5] font-semibold mb-2">
+                Project Name
+              </h3>
 
               <p className="text-sm text-gray-400 mb-4 flex-grow">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -122,7 +156,9 @@ export default function PortfolioSection() {
 
               {/* Content */}
               <div className="flex flex-col flex-grow">
-                <h3 className="text-[#3A6EA5] font-semibold mb-2">Project Name</h3>
+                <h3 className="text-[#3A6EA5] font-semibold mb-2">
+                  Project Name
+                </h3>
 
                 <p className="text-sm text-gray-400 mb-4 flex-grow">
                   Lorem Ipsum is simply dummy text of the printing and
@@ -149,7 +185,9 @@ export default function PortfolioSection() {
               </div>
 
               <div className="flex flex-col flex-grow">
-                <h3 className="text-[#3A6EA5] font-semibold mt-3 mb-2">Project Name</h3>
+                <h3 className="text-[#3A6EA5] font-semibold mt-3 mb-2">
+                  Project Name
+                </h3>
 
                 <p className="text-sm text-gray-400 mb-4">
                   Lorem Ipsum is simply dummy text of the printing and
@@ -164,6 +202,43 @@ export default function PortfolioSection() {
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* Centered Load More Button */}
+        <div className="flex justify-center mt-12">
+          <button className="px-8 py-3 text-lg bg-teal-500 text-white rounded-full hover:bg-blue-400 transition-all inline-flex items-center group">
+            <span>Load More</span>
+            <span className="ml-3 relative w-10 h-10 flex items-center justify-center">
+              <span
+                className="absolute inset-0 bg-black rounded-full"
+                aria-hidden="true"
+              ></span>
+              <svg
+                className="relative w-4 h-4 z-10 transition-transform duration-300 group-hover:rotate-45"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                role="img"
+              >
+                <path
+                  d="M7 17 L17 7"
+                  stroke="#fff"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <path
+                  d="M11 7 H17 V13"
+                  stroke="#fff"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
       </div>
     </section>
