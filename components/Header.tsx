@@ -1,10 +1,34 @@
 // components/Header.tsx
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [logoFallback, setLogoFallback] = useState(false);
+  const pathname = usePathname();
+  const currentPath = pathname ?? "";
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setHash(window.location.hash || "");
+
+    const onHashChange = () => setHash(window.location.hash || "");
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [currentPath]);
+
+  const isActive = (item: string) => {
+    if (item === "Home") return currentPath === "/";
+    if (item === "Services") {
+      return currentPath === "/services" || (currentPath === "/" && hash === "#services");
+    }
+    return currentPath === `/${item.toLowerCase()}`;
+  };
 
   return (
     <header className="fixed w-full z-50">
@@ -13,28 +37,54 @@ const Header = () => {
         <div className="flex items-center space-x-18">
           {/* Logo */}
           <div className="flex items-center">
-            <img
-              src="/Group_1.png"
-              alt="Aussie Digital Studios"
-              className="h-14 w-auto"
-            />
+            {!logoFallback ? (
+              <Image
+                src="/Group_1.png"
+                alt="Aussie Digital Studios"
+                width={140}
+                height={56}
+                className="h-14 w-auto"
+                priority
+                unoptimized
+                onError={() => setLogoFallback(true)}
+              />
+            ) : (
+              // fallback to plain img if next/image fails for any reason
+              // keeps visual classes consistent
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src="/Group_1.png" alt="Aussie Digital Studios" className="h-14 w-auto" />
+            )}
           </div>
 
           {/* Desktop Nav - now next to logo */}
           <nav className="hidden md:flex space-x-6">
-            {['Home', 'About', 'Services', 'Portfolio', 'Career', 'Packages', 'Contact'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className={`text-sm font-semibold transition-colors whitespace-nowrap ${
-                  item === 'Home'
-                    ? 'text-[#4C8C74] border-b-2 border-[#4C8C74]'
+            {['Home', 'About', 'Services', 'Portfolio', 'Career', 'Packages', 'Contact'].map((item) => {
+              const href =
+                item === 'Home'
+                  ? '/'
+                  : item === 'Services'
+                    ? '/services'
+                    : `/${item.toLowerCase()}`;
+
+              const active = isActive(item);
+
+              return (
+                <Link
+                  key={item}
+                  href={href}
+                  aria-current={active ? 'page' : undefined}
+                  className={`text-sm font-semibold transition-colors whitespace-nowrap ${active
+                    ? 'text-[#4C8C74]'
                     : 'text-white opacity-50 hover:text-white hover:opacity-100'
-                }`}
-              >
-                {item}
-              </a>
-            ))}
+                    }`}
+                >
+                  <div className="flex flex-col items-center">
+                    <span>{item}</span>
+                    <span className={`mt-1 rounded-full w-2 h-2 ${active ? 'bg-[#4C8C74]' : 'bg-transparent'}`} />
+                  </div>
+                </Link>
+              );
+            })}
           </nav>
         </div>
 
@@ -83,20 +133,32 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-black/90 pb-4">
           <nav className="flex flex-col space-y-4 px-6 py-4">
-            {['Home', 'About', 'Services', 'Portfolio', 'Career', 'Packages', 'Contact'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className={`text-sm font-medium transition-colors ${
-                  item === 'Home'
-                    ? 'text-[#4C8C74]'
-                    : 'text-gray-300 hover:text-white'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
+            {['Home', 'About', 'Services', 'Portfolio', 'Career', 'Packages', 'Contact'].map((item) => {
+              const href =
+                item === 'Home'
+                  ? '/'
+                  : item === 'Services'
+                    ? '/#services'
+                    : `/${item.toLowerCase()}`;
+
+              const active = isActive(item);
+
+              return (
+                <Link
+                  key={item}
+                  href={href}
+                  aria-current={active ? 'page' : undefined}
+                  className={`text-sm font-medium transition-colors ${active ? 'text-[#4C8C74]' : 'text-gray-300 hover:text-white'
+                    }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <div className="flex flex-col items-start md:items-center">
+                    <span>{item}</span>
+                    <span className={`mt-1 rounded-full w-2 h-2 ${active ? 'bg-[#4C8C74]' : 'bg-transparent'}`} />
+                  </div>
+                </Link>
+              );
+            })}
             <button className="flex items-center space-x-1 text-sm text-white hover:text-green-400 transition-colors pt-2">
               <span>Get In Touch</span>
               <svg

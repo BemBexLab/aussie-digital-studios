@@ -171,7 +171,13 @@ const Services = () => {
           {services.map((service, i) => (
             <div
               key={i}
-              className="group relative rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 p-6 transition hover:bg-white/10"
+              className="group relative rounded-2xl border border-white/10 p-6 transition overflow-hidden"
+              style={{
+                backgroundImage: "radial-gradient(circle at top right, rgba(255,255,255,0.3) 0%, transparent 50%), linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backdropFilter: "blur(10px)",
+              }}
             >
               <div className="flex flex-row">
                 {/* icon - fixed: use the icon directly */}

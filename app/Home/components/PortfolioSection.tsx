@@ -3,7 +3,7 @@ export default function PortfolioSection() {
     <section className="relative py-28">
       {/* Heading */}
       <div className="text-center mb-20">
-        <p className="text-lg text-emerald-400 mb-2 font-medium">
+        <p className="text-lg text-emerald-400 mb-2 font-semibold">
           Our Portfolio
         </p>
         <h2 className="text-4xl md:text-5xl font-semibold text-white">
@@ -29,7 +29,7 @@ export default function PortfolioSection() {
 
             {/* Content */}
             <div className="flex flex-col flex-grow">
-              <h3 className="text-sky-400 font-medium mb-2">Project Name</h3>
+              <h3 className="text-[#3A6EA5] font-semibold mb-2">Project Name</h3>
 
               <p className="text-sm text-gray-400 mb-4 flex-grow">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -56,7 +56,7 @@ export default function PortfolioSection() {
             </div>
 
             <div className="flex flex-col flex-grow">
-              <h3 className="text-sky-400 font-medium mb-2">Project Name</h3>
+              <h3 className="text-[#3A6EA5] font-semibold mb-2">Project Name</h3>
 
               <p className="text-sm text-gray-400 mb-4 flex-grow">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -82,7 +82,7 @@ export default function PortfolioSection() {
             />
           </div>
 
-          <h3 className="text-sky-400 font-medium mb-2">Project Name</h3>
+          <h3 className="text-[#3A6EA5] font-semibold mb-2">Project Name</h3>
 
           <p className="text-sm text-gray-400 mb-4 max-w-2xl">
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -100,7 +100,7 @@ export default function PortfolioSection() {
         <div className="flex flex-row gap-14 mt-30 items-stretch">
           <div className="flex flex-row gap-14 mb-6 items-stretch">
             {/* Card 04*/}
-            <div className="rounded-3xl mt-[55px] w-[670px] flex flex-col flex-none self-start">
+            <div className="rounded-3xl mt-[150px] w-[670px] flex flex-col flex-none self-start">
               {/* Image wrapper */}
               <div className="rounded-2xl overflow-hidden mb-6">
                 <img
@@ -112,7 +112,7 @@ export default function PortfolioSection() {
 
               {/* Content */}
               <div className="flex flex-col flex-grow">
-                <h3 className="text-sky-400 font-medium mb-2">Project Name</h3>
+                <h3 className="text-[#3A6EA5] font-semibold mb-2">Project Name</h3>
 
                 <p className="text-sm text-gray-400 mb-4 flex-grow">
                   Lorem Ipsum is simply dummy text of the printing and
@@ -129,8 +129,8 @@ export default function PortfolioSection() {
             </div>
 
             {/* Card 05 (same structure) */}
-            <div className="rounded-3xl w-[460px] p-8 flex flex-col flex-none">
-              <div className="rounded-2xl overflow-hidden mb-6">
+            <div className="rounded-3xl w-[460px] p-8 flex flex-col flex-none self-start">
+              <div className="rounded-2xl overflow-hidden mb-2">
                 <img
                   src="/Home/Rectangle_33.png"
                   alt="Project"
@@ -139,9 +139,9 @@ export default function PortfolioSection() {
               </div>
 
               <div className="flex flex-col flex-grow">
-                <h3 className="text-sky-400 font-medium mb-2">Project Name</h3>
+                <h3 className="text-[#3A6EA5] font-semibold mt-3 mb-2">Project Name</h3>
 
-                <p className="text-sm text-gray-400 mb-4 flex-grow">
+                <p className="text-sm text-gray-400 mb-4">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry.
                 </p>

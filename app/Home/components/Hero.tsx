@@ -5,7 +5,7 @@ import { PiSunFill } from "react-icons/pi";
 const Hero = () => {
   return (
     <div className="overflow-x-hidden">
-      <section className="relative h-screen bg-black">
+      <section className="relative h-[130vh] bg-black pb-40">
         <div
           className="absolute inset-0 z-0"
           style={{
@@ -67,17 +67,19 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-[-60px] left-0 right-0 z-40 pointer-events-none">
-          <div className="absolute left-6 md:left-16 top-0 pb-1 pointer-events-auto">
-            <p className="text-white text-3xl font-bold font-medium">Modern</p>
+        <div className="absolute bottom-10 left-0 right-0 z-40 pointer-events-none flex justify-center">
+          <div className="relative pointer-events-auto inline-block">
+            <p className="absolute left-0 -top-6 text-white text-3xl font-bold font-medium">
+              Modern
+            </p>
+            <h1 className="text-white font-semibold font-black text-5xl md:text-[80px] lg:text-[120px] xl:text-[160px] leading-tight tracking-[-0.009em] whitespace-nowrap text-center">
+              DIGITAL DESIGN
+            </h1>
+            <p className=" text-white px-[290px] text-lg md:text-base opacity-60 font-bold mt-1">
+              that helps your brand grow.
+            </p>
           </div>
-          <h1 className="text-white font-semibold font-black text-5xl md:text-[80px] lg:text-[120px] xl:text-[160px] leading-tight tracking-[-0.009em] whitespace-nowrap text-center pointer-events-auto">
-            DIGITAL DESIGN
-          </h1>
         </div>
-        <p className="text-white text-sm md:text-base opacity-60 font-normal mt-1">
-          that helps your brand grow.
-        </p>
       </section>
     </div>
   );

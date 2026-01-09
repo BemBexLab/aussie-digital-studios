@@ -3,8 +3,8 @@
 /* Outfit font (served from public/fonts/Outfit) */
 @font-face {
   font-family: 'Outfit';
-  src: url('/fonts/Outfit/Outfit-Regular.ttf') format('truetype');
-  font-weight: 400;
+  src: url('/fonts/Outfit/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
