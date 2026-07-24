@@ -1,3 +1,5 @@
+import { unstable_cache } from "next/cache";
+
 export const PORTFOLIO_API_ORIGIN =
   "https://projects-api-bembexlab.vercel.app";
 
@@ -175,22 +177,30 @@ function normalizePortfolioProject(
   };
 }
 
+const getPortfolioProjectsCached = unstable_cache(
+  async (): Promise<PortfolioProjectPost[]> => {
+    const response = await fetch(PORTFOLIO_API_URL, {
+      next: { revalidate: PORTFOLIO_REVALIDATE_SECONDS },
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch portfolio projects: ${response.status} ${response.statusText}`,
+      );
+    }
+
+    const data = (await response.json()) as RawPortfolioResponse;
+
+    return (data.projects || [])
+      .map(normalizePortfolioProject)
+      .filter(
+        (project): project is PortfolioProjectPost => project !== null,
+      );
+  },
+  ["portfolio-projects"],
+  { revalidate: PORTFOLIO_REVALIDATE_SECONDS },
+);
+
 export async function getPortfolioProjects(): Promise<PortfolioProjectPost[]> {
-  const response = await fetch(PORTFOLIO_API_URL, {
-    next: { revalidate: PORTFOLIO_REVALIDATE_SECONDS },
-  });
-
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch portfolio projects: ${response.status} ${response.statusText}`,
-    );
-  }
-
-  const data = (await response.json()) as RawPortfolioResponse;
-
-  return (data.projects || [])
-    .map(normalizePortfolioProject)
-    .filter(
-      (project): project is PortfolioProjectPost => project !== null,
-    );
+  return getPortfolioProjectsCached();
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { GoArrowDown } from "react-icons/go";
 import { IoClose } from "react-icons/io5";
@@ -84,6 +84,7 @@ type WebsiteFilter = PortfolioWebsiteSubcategory | typeof WEBSITE_FILTER_ALL;
 export default function PortfolioWall({
   initialPosts = [],
 }: PortfolioWallProps) {
+  const hasInitialPosts = initialPosts.length > 0;
   const [posts, setPosts] = useState<PortfolioProjectPost[]>(initialPosts);
   const [selectedCategory, setSelectedCategory] =
     useState<PortfolioMainCategory>("WEB DEVELOPMENT");
@@ -99,10 +100,10 @@ export default function PortfolioWall({
     null,
   );
   const [itemsToShow, setItemsToShow] = useState(6);
-  const [loading, setLoading] = useState(initialPosts.length === 0);
+  const [loading, setLoading] = useState(!hasInitialPosts);
   const [fetchTimedOut, setFetchTimedOut] = useState(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
-  const [dataReady, setDataReady] = useState(initialPosts.length > 0);
+  const [dataReady, setDataReady] = useState(hasInitialPosts);
   const [isInView, setIsInView] = useState(false);
   const [isMobileInView, setIsMobileInView] = useState(false);
   const desktopHeadingRef = useRef<HTMLDivElement>(null);
@@ -114,30 +115,35 @@ export default function PortfolioWall({
     selectedCategory.toLowerCase(),
   );
 
-  const filteredPosts = posts.filter((post) => {
-    const categoryMatch = post.acf.catogary.some(
-      (category) => category === selectedCategory,
-    );
+  const filteredPosts = useMemo(() => {
+    return posts.filter((post) => {
+      const categoryMatch = post.acf.catogary.some(
+        (category) => category === selectedCategory,
+      );
 
-    if (!categoryMatch) {
-      return false;
-    }
-
-    if (selectedCategory === "WEB DEVELOPMENT") {
-      if (selectedWebsiteSubcategory === WEBSITE_FILTER_ALL) {
-        return true;
+      if (!categoryMatch) {
+        return false;
       }
 
-      return post.acf.subcategory === selectedWebsiteSubcategory;
-    }
+      if (selectedCategory === "WEB DEVELOPMENT") {
+        if (selectedWebsiteSubcategory === WEBSITE_FILTER_ALL) {
+          return true;
+        }
 
-    return true;
-  });
+        return post.acf.subcategory === selectedWebsiteSubcategory;
+      }
 
-  const currentPosts = filteredPosts.slice(0, itemsToShow);
+      return true;
+    });
+  }, [posts, selectedCategory, selectedWebsiteSubcategory]);
 
-  const fetchPosts = async (timeoutMs = 15000) => {
-    if (initialPosts.length > 0) {
+  const currentPosts = useMemo(
+    () => filteredPosts.slice(0, itemsToShow),
+    [filteredPosts, itemsToShow],
+  );
+
+  const fetchPosts = useCallback(async (timeoutMs = 15000) => {
+    if (hasInitialPosts) {
       setPosts(initialPosts);
       setDataReady(true);
       setLoading(false);
@@ -192,10 +198,10 @@ export default function PortfolioWall({
       clearTimeout(timeoutId);
       setLoading(false);
     }
-  };
+  }, [hasInitialPosts, initialPosts]);
 
   useEffect(() => {
-    if (initialPosts.length > 0) {
+    if (hasInitialPosts) {
       setPosts(initialPosts);
       setDataReady(true);
       setLoading(false);
@@ -205,7 +211,7 @@ export default function PortfolioWall({
     }
 
     fetchPosts();
-  }, [initialPosts]);
+  }, [fetchPosts, hasInitialPosts, initialPosts]);
 
   useEffect(() => {
     if (selectedCategory !== "WEB DEVELOPMENT") {

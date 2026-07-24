@@ -9,7 +9,7 @@ function normalizeUrl(u) {
       return u.startsWith("//") ? `https:${u}` : u;
     }
     return `https://${u}`;
-  } catch (e) {
+  } catch {
     return u;
   }
 }
