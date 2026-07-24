@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
 import { getPortfolioProjects } from "@/lib/portfolioProjects";
 import SectionFallback from "@/components/SectionFallback";
-import LazySection from "@/components/LazySection";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -39,9 +38,7 @@ const PortfolioPage = async () => {
           className="relative z-10 bottom-[-103px] right-0 md:block"
         />
       </div> */}
-      <LazySection heightClassName="min-h-96">
-        <LazyPortfolioSection initialPosts={initialPosts} />
-      </LazySection>
+      <LazyPortfolioSection initialPosts={initialPosts} />
     </div>
   );
 };

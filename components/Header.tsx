@@ -86,11 +86,15 @@ const Header = () => {
         className={`hidden lg:block fixed top-0 left-0 w-full z-50 transform transition-transform duration-300 ease-in-out ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}
       >
       <div
-        className={`relative mx-4 mt-4 flex items-center justify-between rounded-[24px] border px-5 py-3.5 lg:mx-6 lg:px-8 xl:mx-8 xl:px-12 2xl:mx-10 2xl:px-16 backdrop-blur-sm transition-colors duration-300 ${
+        className={`relative mx-4 mt-4 flex items-center justify-between rounded-[24px] border px-5 py-3.5 lg:mx-6 lg:px-8 xl:mx-8 xl:px-12 2xl:mx-10 2xl:px-16 transition-colors duration-300 
+
+          ${
           isScrolled
             ? 'border-white/10 bg-white/6 shadow-[0_10px_24px_rgba(0,0,0,0.1)]'
             : 'border-white/8 bg-white/4 shadow-[0_8px_18px_rgba(0,0,0,0.08)]'
-        }`}
+        }
+        
+        `}
       >
         {/* Left side: Logo */}
         <div className="flex min-w-0 items-center">

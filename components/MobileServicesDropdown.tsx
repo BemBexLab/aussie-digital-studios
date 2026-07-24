@@ -58,6 +58,7 @@ const MobileServicesDropdown = () => {
           {MOBILE_SERVICE_NAVIGATION.map((section, idx) => (
             <div key={idx} className="px-4 py-3 border-b last:border-b-0 border-gray-800">
               <Link
+                prefetch={false}
                 href={section.title.href}
                 className="text-xs font-semibold text-[#4C8C74] uppercase mb-2 block hover:text-green-400 transition-colors"
                 onClick={() => setIsServicesDropdownOpen(false)}
@@ -68,6 +69,7 @@ const MobileServicesDropdown = () => {
                 {section.items.map((subItem, subIdx) => (
                   <li key={subIdx}>
                     <Link
+                      prefetch={false}
                       href={subItem.href}
                       className="text-xs hover:text-green-400 transition-colors block text-gray-300"
                       onClick={() => setIsServicesDropdownOpen(false)}

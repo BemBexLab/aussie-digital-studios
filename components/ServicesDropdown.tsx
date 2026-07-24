@@ -141,6 +141,7 @@ const ServicesDropdown = () => {
                   <div className="h-8" />
                 )}
                 <Link
+                  prefetch={false}
                   className="font-light text-md md:text-md uppercase tracking-tight block leading-tight hover:text-green-400 transition-colors"
                   href={col.title.href}
                 >
@@ -150,6 +151,7 @@ const ServicesDropdown = () => {
                   {col.items.map((subItem, subIdx) => (
                     <li key={subIdx}>
                       <Link
+                        prefetch={false}
                         href={subItem.href}
                         className="hover:text-green-400 transition-colors text-sm text-[#AAAAAA]"
                       >
