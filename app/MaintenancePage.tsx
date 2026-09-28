@@ -116,8 +116,8 @@ export default function MaintenancePage() {
               <span>© {new Date().getFullYear()} Aussie Digital Studios. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-6">
-              <a href="#" className="transition-colors hover:text-[#a8d4c4]">Privacy Policy</a>
-              <a href="#" className="transition-colors hover:text-[#a8d4c4]">Terms of Service</a>
+              <a href="/privacy" className="transition-colors hover:text-[#a8d4c4]">Privacy Policy</a>
+              <a href="/terms" className="transition-colors hover:text-[#a8d4c4]">Terms of Service</a>
             </div>
           </div>
         </footer>
