@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import MaintenanceGate from "@/app/MaintenanceGate";
-import MaintenancePage from "@/app/MaintenancePage";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const geistSans = Geist({
@@ -38,13 +34,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
-        <MaintenanceGate
-          footer={<Footer />}
-          header={<Header />}
-          maintenance={<MaintenancePage />}
-        >
-          {children}
-        </MaintenanceGate>
+        {children}
       </body>
     </html>
   );
